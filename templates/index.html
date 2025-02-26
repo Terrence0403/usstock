@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>US Stock Navigator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo_dark.png') }}" alt="Logo">
+        </a>
+        <h1>US Stock Navigator</h1>
+        <nav>
+            <a href="#" class="menu-open hide-desktop">
+                <button alt="open menu">&#9776;</button>
+            </a>
+            <ul>
+                <li><a href="#" class="menu-close hide-desktop">
+                        <button alt="close menu">&times;</button>
+                    </a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('insights') }}">Insights</a></li>
+                <li><a href="{{ url_for('hot_topic') }}">Hot-Topics</a></li>
+                <li><a href="{{ url_for('member_page') }}">SignUp/LogIn</a></li>
+            </ul>
+        </nav>
+        <script src="{{ url_for('static', filename='js/nav_bar.js') }}"></script>
+    </header>
+    <main>
+        <section class="more">
+            <h2>Join now and step into the new era of smart investing!</h2>
+            <p>Predicting the market isn't magic—<br></p>
+
+            <div class="carousel"></div>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+            <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+        </section>
+
+        <section class="slogan">
+            <blockquote>Let our AI assistant sharpen your investment edge！</blockquote>
+        </section>
+
+        <section class="AI_btn">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="chatbox" id="chatbox">
+                <div class="chatbox-resize-handle" id="resizeHandle"></div>
+                <div class="chatbox-header">
+                    Chat Room
+                    <button class="close-btn" id="closeChat">&times;</button>
+                </div>
+                <div class="chatbox-messages" id="messages">
+                </div>
+                <div class="chatbox-input">
+                    <input type="text" id="chatInput" placeholder="Enter your message">
+                    <button id="sendMessage">Send</button>
+                </div>
+            </div>
+            <button type="AI_btn" id="AI_btn">Stock<br>AI</button>
+            <div id="overlay" class="chat-box chat-open"></div>
+        </section>
+        <section class="news">
+            <div class="rss">
+                <a href="{{ url_for('hot_topic') }}">
+                    <button>Hot Topics</button>
+                </a>
+                <ul class="rss-feed" id="rss-feed"></ul>
+                <ul class="insights-feed" id="insights-feed"></ul>
+                <script src="{{ url_for('static', filename='js/rss.js') }}"></script>
+            </div>
+            <div class="samples-content">
+                <a href="{{ url_for('viewport') }}">
+                    <button>Ratings</button>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright 2025 US Stock Navigator All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>

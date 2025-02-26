@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- <html lang="zh-TW"> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Stock Navigator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hot-topic.css') }}">
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo_dark.png') }}" alt="Logo">
+        </a>
+        <h1>US Stock Navigator</h1>
+        <nav>
+            <a href="#" class="menu-open hide-desktop">
+                <button alt="open menu">&#9776;</button>
+            </a>
+            <ul>
+                <li><a href="#" class="menu-close hide-desktop">
+                        <button alt="close menu">&times;</button>
+                    </a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('insights') }}">Insights</a></li>
+                <li><a href="{{ url_for('hot_topic') }}">Hot-Topics</a></li>
+                <li><a href="{{ url_for('member_page') }}">SignUp/LogIn</a></li>
+            </ul>
+        </nav>
+        <script src="{{ url_for('static', filename='js/nav_bar.js') }}"></script>
+    </header>
+
+    <main>
+        <section class="content">
+
+            <h2>Hot Topics</h2>
+            <p>Stay informed with the latest U.S. stock market news. We deliver breaking news, analysis, and <br>expert
+                commentary on the hottest trends and most talked-about topics impacting Wall Street. <br>Get the information
+                you need to make informed investment decisions.</p>
+        </section>
+
+        <div class="videos-container">
+            <div id="playlist1"></div>
+            <div id="playlist2"></div>
+        </div>
+        <script src="{{ url_for('static', filename='js/videos.js') }}"></script>
+
+        <div class="rss">
+            <h2>Yahoo Finance News Feed</h2>
+            <ul class="rss-feed" id="rss-feed"></ul>
+            <!-- <a href="insights.html"> -->
+            <ul class="insights-feed" id="insights-feed"></ul>
+            <script src="{{ url_for('static', filename='js/rss.js') }}"></script>
+            <h2>New York Times News Feed</h2>
+            <ul class="insights-feed" id="nyt-feed"></ul>
+            <script src="{{ url_for('static', filename='js/rss_nyt.js') }}"></script>
+        </div>
+
+        <button class="scroll-top-btn">↑</button>
+        <script src="{{ url_for('static', filename='js/scroll-to-top-btn.js') }}"></script>
+    </main>
+    <footer>
+        <p>Copyright © 2025 US Stock Navigator All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

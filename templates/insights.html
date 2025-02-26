@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Stock Navigator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/insights.css') }}">
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo_dark.png') }}" alt="Logo">
+        </a>
+        <h1>US Stock Navigator</h1>
+        <nav>
+            <a href="#" class="menu-open hide-desktop">
+                <button alt="open menu">&#9776;</button>
+            </a>
+            <ul>
+                <li><a href="#" class="menu-close hide-desktop">
+                        <button alt="close menu">&times;</button>
+                    </a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('insights') }}">Insights</a></li>
+                <li><a href="{{ url_for('hot_topic') }}">Hot-Topics</a></li>
+                <li><a href="{{ url_for('member_page') }}">SignUp/LogIn</a></li>
+            </ul>
+        </nav>
+        <script src="{{ url_for('static', filename='js/nav_bar.js') }}"></script>
+    </header>
+
+    <main>
+        <section class="content">
+            <h2>Insights</h2>
+            <p>Our team is made up of a group of passionate individuals who are dedicated to providing you <br>with the best
+                possible service. We are committed to helping you navigate the complex world <br>of US stock markets and
+                make informed decisions about your investments.</p>
+        </section>
+
+        <div class="container">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+
+            <div class="slider">
+                <div>
+                    <iframe src="{{ url_for('static', filename='pdf/AAPL_202501.pdf') }}" width="100%" height="1100px"></iframe>
+                </div>
+                <div>
+                    <iframe src="{{ url_for('static', filename='pdf/AMZN_202501.pdf') }}" width="100%" height="1100px"></iframe>
+                </div>
+                <div>
+                    <iframe src="{{ url_for('static', filename='pdf/META_202501.pdf') }}" width="100%" height="1100px"></iframe>
+                </div>
+                <div>
+                    <iframe src="{{ url_for('static', filename='pdf/MSFT_202501.pdf') }}" width="100%" height="1100px"></iframe>
+                </div>
+                <div>
+                    <iframe src="{{ url_for('static', filename='pdf/NVDA_202501.pdf') }}" width="100%" height="1100px"></iframe>
+                </div>
+                <div>
+                    <iframe src="{{ url_for('static', filename='pdf/TSLA_202501.pdf') }}" width="100%" height="1100px"></iframe>
+                </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+            <script src="{{ url_for('static', filename='js/pdf.js') }}"></script>
+        </div>
+</body>
+
+
+</main>
+<footer>
+    <p>Copyright © 2025 US Stock Navigator All Rights Reserved.</p>
+</footer>
+</body>
+
+</html>

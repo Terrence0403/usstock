@@ -1,0 +1,307 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #142344;
+}
+
+header {
+    background-color: rgba(35, 28, 26, 0.8);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+header .logo img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+h1 {
+    color: #ffd67f;
+    font-size: 24px;
+    line-height: 50px;
+    margin: 0;
+    margin-left: 40px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+.hide-desktop {
+    display: none;
+}
+
+.hide-mobile {
+    display: block;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+header ul {
+    position: absolute;
+    right: 5vw;
+    top: 0;
+    line-height: 80px;
+}
+
+header li {
+    display: inline;
+    margin-right: 4vw;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+    color: #ffd67f;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+.content {
+    background-color: rgb(26, 16, 83);
+    color: aliceblue;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content h2 {
+    font-size: 30px;
+    align-items: center;
+}
+
+.content p {
+    font-size: 18px;
+    margin: 3rem;
+    align-items: center;
+    text-align: justify;
+}
+
+/* -----------------------------------------VIDEOS------------------------------------- */
+
+.videos-container {
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
+
+    div {
+        margin: 1.5rem;
+        align-items: center;
+        display: inline-block;
+    }
+}
+
+/* -----------------------------------------ARTICLES------------------------------------- */
+
+.rss {
+    width: 80%;
+    background-color: #142344;
+    font-size: 15px;
+    text-align: justify;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: auto;
+
+    button {
+        color: beige;
+        background-color: #142344;
+        font-size: 20px;
+        border: none;
+        margin: 1rem 1rem 0 1rem;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    h2 {
+        color: beige;
+    }
+
+    .rss-feed {
+        display: none;
+    }
+
+    .insights-feed {
+        list-style: none;
+        padding: 0;
+        text-decoration: none;
+    }
+
+    .insights-feed div {
+        margin: 5px;
+        list-style: none;
+        background-color: rgb(225, 230, 243);
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    .insights-feed a {
+        text-decoration: none;
+        color: #093083;
+        font-weight: bold;
+    }
+
+    .insights-feed h3 {
+        margin: 0.2rem;
+    }
+
+    .insights-feed h2 {
+        color: grey;
+        font-size: .8rem;
+        margin: 0;
+    }
+
+    .insights-feed p {
+        color: #091b42;
+        margin: 0.1rem;
+    }
+
+    .nyt-feed {
+        background-color: rgb(225, 230, 243);
+        padding: 5px;
+        border-radius: 3px;
+    }
+}
+
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    background-color: #225b99;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px 15px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+/* -----------------------------------------FOOTER------------------------------------- */
+
+footer {
+    background-color: #000000;
+    color: #B7B7B7;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* -----------------------------------------MOBILE------------------------------------- */
+
+@media screen and (max-width: 900px) {
+
+    header {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+        align-items: center;
+    }
+
+    .content {
+        padding-top: 5rem;
+    }
+
+    /* ------------------------------------------NAV------------------------------------- */
+
+    nav a button {
+        display: block;
+        background-color: transparent;
+        color: white;
+        font-size: 35px;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    nav ul {
+        background-color: white;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        margin: 0;
+        list-style: none;
+        width: 35%;
+        text-align: center;
+        padding: 2em;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+
+        li {
+            margin: 2em 0;
+
+            &:nth-of-type(2) {
+                margin-top: 3em;
+            }
+
+            a {
+                color: black;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 1.2rem;
+                width: 80%;
+                display: inline-block;
+
+                &:hover {
+                    color: orange;
+                }
+
+                button {
+                    display: block;
+                    background-color: transparent;
+                    color: black;
+                    font-size: 35px;
+                    position: absolute;
+                    top: 15px;
+                    left: 20px;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .open {
+        transform: translateX(0%);
+    }
+
+    .hide-desktop {
+        display: block;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+}

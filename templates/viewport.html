@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/yahoofinance.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo_dark.png') }}" alt="Logo">
+        </a>
+        <h1>US Stock Navigator</h1>
+        <nav>
+            <a href="#" class="menu-open hide-desktop">
+                <button alt="open menu">&#9776;</button>
+            </a>
+            <ul>
+                <li><a href="#" class="menu-close hide-desktop">
+                        <button alt="close menu">&times;</button>
+                    </a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('insights') }}">Insights</a></li>
+                <li><a href="{{ url_for('hot_topic') }}">Hot-Topics</a></li>
+                <li><a href="{{ url_for('member_page') }}">SignUp/LogIn</a></li>
+            </ul>
+        </nav>
+        <script src="{{ url_for('static', filename='js/nav_bar.js') }}"></script>
+    </header>
+    <main>
+        <div class="container">
+            <h1>_</h1>
+
+            <div class="search-container">
+                <input type="text" id="stockSymbol"
+                    placeholder="Enter stock symbol (e.g. AAPL, NVDA)"
+                    class="search-input">
+                <button onclick="updateCharts(document.getElementById('stockSymbol').value)"
+                    class="search-button">Search</button>
+            </div>
+
+            <div id="error-message" style="color: red; margin: 10px 0;"></div>
+
+            <div class="charts-row">
+                <div class="chart-container donut">
+                    <h2>Analyst Ratings</h2>
+                    <canvas id="ratingsChart"></canvas>
+                    <div class="analyst-insights">
+                        <h3>Analyst Insights</h3>
+                        <div class="insight-item">
+                            <span>Total Analysts:</span>
+                            <span id="totalAnalysts">-</span>
+                        </div>
+                        <div class="insight-item">
+                            <span>Average Rating:</span>
+                            <span id="averageRating">-</span>
+                        </div>
+                        <div class="insight-item">
+                            <span>Price Targets</span>
+                            <div class="price-targets">
+                                <div>High: <span id="highTarget">-</span></div>
+                                <div>Average: <span id="avgTarget">-</span></div>
+                                <div>Low: <span id="lowTarget">-</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container line">
+                    <h2>Price Forecast</h2>
+                    <div class="subtitle">Price Trend (Past Year)</div>
+                    <canvas id="forecastChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='js/fetchData.js') }}"></script>
+    </main>
+    <footer>
+        <p>Copyright 2024 US Stock Navigator All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

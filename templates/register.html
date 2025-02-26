@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Stock Navigator - Registration</title>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/logo_dark.png') }}" alt="Logo">
+        </a>
+        <h1>US Stock Navigator</h1>
+        <nav>
+            <a href="#" class="menu-open hide-desktop">
+                <button alt="open menu">&#9776;</button>
+            </a>
+            <ul>
+                <li><a href="#" class="menu-close hide-desktop">
+                        <button alt="close menu">&times;</button>
+                    </a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('insights') }}">Insights</a></li>
+                <li><a href="{{ url_for('hot_topic') }}">Hot-Topics</a></li>
+                <li><a href="{{ url_for('member_page') }}">SignUp/LogIn</a></li>
+            </ul>
+        </nav>
+        <script src="{{ url_for('static', filename='js/nav_bar.js') }}"></script>
+    </header>
+
+    <div class="container">
+        <div class="step-container">
+            <div class="step-indicators">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="step active">1</div>
+                <div class="step">2</div>
+                <div class="step">3</div>
+            </div>
+
+            <!-- Step 1: Registration -->
+            <form id="registrationForm">
+                <div class="form-step active" id="step1">
+                    <h2>Step 1: Account Registration</h2>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="verification-group">
+                            <input type="password" id="password">
+                            <button type="button" class="btn btn-primary" id="togglePassword" onclick="togglePasswordVisibility('password', 'togglePassword')">Show</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="verification-group">
+                            <input type="password" id="confirmPassword">
+                            <button type="button" class="btn btn-primary" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPassword', 'toggleConfirmPassword')">Show</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="verification-group">
+                            <input type="email" id="email">
+                            <button type="button" class="btn btn-primary" id="sendVerification">Send Code</button>
+                            <span id="countdown" style="font-size: 0.9rem; color: #6c757d; margin-left: 10px;"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="verificationCode">Verification Code</label>
+                        <input type="text" id="verificationCode">
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-primary" onclick="nextStep(1)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Risk Assessment -->
+                <div class="form-step" id="step2">
+                    <h2>Step 2: Investment Risk Assessment</h2>
+
+                    <div class="form-group">
+                        <label>1. What is your primary investment goal?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="goal" value="preservation" > Capital preservation and
+                                stable returns
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="goal" value="growth"> Moderate growth with controlled risk
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="goal" value="high_growth"> High returns, even with higher risk
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. How would you react to significant market fluctuations?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="market_reaction" value="anxious" > Feel uneasy and
+                                consider exiting investments
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="market_reaction" value="observe"> Stay calm and consider
+                                adjusting portfolio
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="market_reaction" value="excited"> View it as an opportunity to
+                                invest more
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. What is the maximum loss you are willing to tolerate?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="max_loss" value="low" > Less than 5%
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="max_loss" value="moderate"> 5% - 15%
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="max_loss" value="high"> More than 15%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. What type of investment products do you prefer?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="investment_type" value="fixed_income" > Fixed income
+                                products, like bonds
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="investment_type" value="funds"> Mutual funds or ETFs
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="investment_type" value="stocks"> Individual stocks or
+                                high-risk investments
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. How quickly do you make investment decisions?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="decision_speed" value="slow" > Take weeks or longer,
+                                requiring detailed research
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="decision_speed" value="moderate"> Make decisions within a few
+                                days
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="decision_speed" value="fast"> Decide on the spot based on
+                                intuition
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>6. How stable is your primary income source?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="income_stability" value="very_stable" > Very stable,
+                                such as a fixed salary
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="income_stability" value="stable"> Relatively stable with
+                                occasional fluctuations
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="income_stability" value="unstable"> Unstable, like freelancing
+                                or investment-based income
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>7. Have you experienced significant investment losses in the past?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="loss_experience" value="yes_impact" > Yes, and it
+                                affected my investment attitude
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="loss_experience" value="yes_no_impact"> Yes, but I see it as a
+                                learning experience
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="loss_experience" value="no"> No, or it didn’t affect my
+                                confidence
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>8. How do you approach uncertain but potentially high-return investments?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="approach_uncertain" value="avoid" > Avoid and choose
+                                more stable options
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="approach_uncertain" value="evaluate"> Evaluate risk and return
+                                carefully
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="approach_uncertain" value="embrace"> Embrace the risk for high
+                                potential returns
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>9. How would you rate your investment knowledge and experience?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="knowledge" value="beginner" > Beginner, rely on expert
+                                advice
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="knowledge" value="intermediate"> Intermediate, understand
+                                major investment tools
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="knowledge" value="advanced"> Advanced, often make independent
+                                decisions
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>10. Which statement best describes your investment style?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="style" value="conservative" > Conservative, prioritize
+                                capital preservation
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="style" value="balanced"> Balanced, aim for growth with risk
+                                control
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="style" value="aggressive"> Aggressive, pursue high returns
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Previous</button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirmation -->
+                <div class="form-step" id="step3">
+                    <h2>Step 3: Confirmation</h2>
+                    <p>Please review your information:</p>
+                    <div id="summary"></div>
+                    <div class="buttons">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Previous</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>Copyright 2025 US Stock Navigator All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

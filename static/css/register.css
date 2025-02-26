@@ -1,0 +1,347 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 6rem auto 2rem auto;
+    /* Adjust for fixed header */
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.step-container {
+    margin-bottom: 2rem;
+}
+
+.step-indicators {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step.active {
+    background: #007bff;
+    color: white;
+}
+
+.step.completed {
+    background: #28a745;
+    color: white;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #28a745;
+    transition: width 0.3s ease;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.verification-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.verification-group input {
+    flex: 1;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: #4ba4f3;
+    color: white;
+}
+
+.btn-secondary {
+    background: #004d91;
+    color: white;
+}
+
+.radio-group {
+    margin-bottom: 1rem;
+}
+
+.radio-option {
+    margin-bottom: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+/* -----------------------------------------FOOTER------------------------------------- */
+
+footer {
+    background-color: #000000;
+    color: #B7B7B7;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    bottom: 0px;
+}
+
+/* -----------------------------------------MOBILE------------------------------------- */
+
+@media screen and (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+        align-items: center;
+    }
+
+    /* ------------------------------------------NAV------------------------------------- */
+
+    nav a button {
+        display: block;
+        background-color: transparent;
+        color: white;
+        font-size: 35px;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    nav ul {
+        background-color: white;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        margin: 0;
+        list-style: none;
+        width: 35%;
+        text-align: center;
+        padding: 2em;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+
+        li {
+            margin: 2em 0;
+
+            &:nth-of-type(2) {
+                margin-top: 3em;
+            }
+
+            a {
+                color: black;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 1.2rem;
+                width: 80%;
+                display: inline-block;
+
+                &:hover {
+                    color: orange;
+                }
+
+                button {
+                    display: block;
+                    background-color: transparent;
+                    color: black;
+                    font-size: 35px;
+                    position: absolute;
+                    top: 15px;
+                    left: 20px;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .open {
+        transform: translateX(0%);
+    }
+
+    .hide-desktop {
+        display: block;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+}
+
+/* =============header=============== */
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #142344;
+}
+
+header {
+    background-color: rgba(35, 28, 26, 0.8);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+header .logo img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+header h1 {
+    color: #ffd67f;
+    /* 文字變色 */
+    font-size: 24px;
+    line-height: 50px;
+    margin: 0;
+    margin-left: 40px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+.hide-desktop {
+    display: none;
+}
+
+.hide-mobile {
+    display: block;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+header ul {
+    position: absolute;
+    right: 5vw;
+    top: 0;
+    line-height: 80px;
+}
+
+header li {
+    display: inline;
+    margin-right: 4vw;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+    color: #ffd67f;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
